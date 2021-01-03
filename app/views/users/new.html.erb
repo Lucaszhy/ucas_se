@@ -1,0 +1,52 @@
+<% provide(:title, '新用户注册') %>
+<h1 style="font-size: 30px">新用户注册</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" style="margin-left: 410px; width: 360px">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <label for="user_name">昵称</label>
+      <input class="form-control" type="text" name="user[name]" id="user_name" placeholder="请输入昵称"/>
+
+      <label for="user_gender">性别</label>
+      <input class="form-control" type="text" name="user[gender]" id="user_gender" placeholder="请输入性别：男\女" />
+
+      <label for="user_qq">QQ</label>
+      <input class="form-control" type="text" name="user[qq]" id="user_qq" placeholder="请输入允许其他用户私信的QQ号" />
+
+      <label for="user_email">邮箱</label>
+      <input class="form-control" type="email" name="user[email]" id="user_email" placeholder="请输入有效的邮箱地址"/>
+
+      <label for="user_password">密码</label>
+      <input class="form-control" type="password" name="user[password]" id="user_password" placeholder="请输入您的密码" />
+
+      <label for="user_password_confirmation">重复密码</label>
+      <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" placeholder="请再次输入密码"/>
+
+      <label for="user_birthday">生日 </label>
+      <input class="form-control" type="text" name="user[birthday]" id="user_birthday" placeholder="如980817"/>
+
+      <label for="user_dept">培养单位 </label>
+      <input class="form-control" type="text" name="user[dept]" id="user_dept" placeholder="请输入全称：如中国科学院沈阳计算技术研究所"/>
+
+      <label for="user_dept">培养单位所在城市 </label>
+      <input class="form-control" type="text" name="user[deptlocation]" id="user_deptlocation" placeholder="请输入城市名：如沈阳市"/>
+
+      <!-- 直接嵌入html示范-->
+      <label for="user_question">密保问题 </label>
+      <input class="form-control" type="text" name="user[question]" id="user_question" placeholder="请设置一个用于找回密码的密保问题" />
+
+      <!-- 示例
+      <label for="user_question">密保问题 </label><small>&nbsp&nbsp如：中国科学院xx研究所</small>
+      <input class="form-control" type="text" name="user[question]" id="user_question" />
+      -->
+
+      <label for="user_answer">密保答案</label>
+      <input class="form-control" type="text" name="user[answer]" id="user_answer"  placeholder="设置后，可以通过该答案找回密码"/>
+
+      <input type="submit" name="commit" value="创建账户" class="btn btn-primary" data-disable-with="Create my account" />
+
+    <% end %>
+  </div>
+</div>

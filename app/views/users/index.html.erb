@@ -1,0 +1,26 @@
+<% provide(:title, 'All users') %>
+<h1>果壳交友</h1>
+
+<form action="/searchusers" method="get">
+<div class="row">
+<div class='col-lg-10'>
+<input class="form-control" name="users" id="searchUser" value="" placeholder="请输入关键字搜索用户">
+</div>
+<div class='col-lg-2'>
+<button class="btn btn-primary">搜索用户</button>
+</div>
+</div>
+
+   
+</form>
+
+
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+
+
+
+<%= will_paginate %>

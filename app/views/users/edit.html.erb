@@ -1,0 +1,40 @@
+<% provide(:title, "修改资料") %>
+<h1>修改个人信息</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name , "姓名" %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :gender , "性别"%>
+      <%= f.text_field :gender, class: 'form-control' %>
+
+      <%= f.label :qq , "QQ"%>
+      <%= f.text_field :qq, class: 'form-control' %>
+
+      <%= f.label :email , "邮箱"%>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password ,"密码"%>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "重复密码" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label :birthday , "生日",placeholder: "如980401"%>
+      <%= f.text_field :birthday, class: 'form-control' %>
+
+      <%= f.label :dept,"培养单位",placeholder: "如中国科学院xx研究所" %>
+      <%= f.text_field :dept, class: 'form-control' %>
+
+      <%= f.label :dept,"培养单位所在城市" ,placeholder: "如沈阳市"%>
+      <%= f.text_field :deptlocation, class: 'form-control' %>
+
+      <%= f.submit "确认修改", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

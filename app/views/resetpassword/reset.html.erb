@@ -1,0 +1,11 @@
+
+
+
+<%if @user %>
+  <p>尊敬的<%= @user.name%>您好：<br>
+    您的新密码已修改成功！
+    <%= link_to '立即登录', login_path %>
+  </p>
+<% end %>
+
+

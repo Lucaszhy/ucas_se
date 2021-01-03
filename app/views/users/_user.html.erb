@@ -1,0 +1,21 @@
+
+
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name, user %>
+  <small><%= user.gender %></small>
+
+  <small>TA是本网站第<%= user.id %>个用户</small>
+  <!-- 判断当前登录用户是不是管理员-->
+  <% if current_user.admin? %>
+      <% if user.admin %>
+          管理员
+      <% else %>
+          非管理员
+      <% end %>
+  <% end %>
+
+  <% if current_user.admin? && !current_user?(user) %>
+
+  <% end %>
+</li>

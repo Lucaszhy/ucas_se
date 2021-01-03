@@ -1,0 +1,22 @@
+// Place all the styles related to the Microposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+    padding-bottom:100px;
+    .searchItem{
+        display:flex;
+        input{
+            flex:13;
+        }
+        button{
+            flex:2;
+            height:35px;
+        };
+    }
+    tr:nth-child(2n){
+      background:#f2f2f2;
+    }
+    td{
+        padding: 15px;
+    }
+}

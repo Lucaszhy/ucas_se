@@ -1,0 +1,88 @@
+
+<% provide(:title, @user.name) %>
+
+
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <!-- 更换头像新增代码show页面和help页面 --><br><br><%= link_to "修改头像", help_path %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+
+    <p>
+      <strong>姓名：</strong>
+      <%= @user.name %>
+    </p>
+
+    <p>
+      <strong>性别：</strong>
+      <%= @user.gender%>
+    </p>
+
+    <p>
+      <strong>QQ：</strong>
+      <%= @user.qq%>
+    </p>
+
+    <p>
+      <strong>邮箱：</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong>生日：</strong>
+      <%= @user.birthday %>
+    </p>
+
+    <p>
+      <strong>培养单位：</strong>
+      <%= @user.dept%>
+    </p>
+
+    <p>
+      <strong>培养单位所在地：</strong>
+      <%= @user.deptlocation%>
+    </p>
+
+    <!-- 如果查看的用户@user不是自己current_user，才展示私信TA按钮 -->
+    <% if @user != current_user %>
+      <p class = " ">
+        <a href="tencent://message/?uin=<%= @user.qq%>ow&Menu=yes">私信TA</a>
+      <p>
+    <% end %>
+  </aside>
+
+
+  <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
+
+    <h2><%= @user.name%>一共发过<%= @user.microposts.count %>篇微博</h2>
+
+
+
+    <% if @user.microposts.empty? && @user == current_user %>
+      <div class = 'jumbotron' >
+        <p>您还没有发布过微博，<%= link_to '点击此处',root_path %>发个新微博吧~~~</p>
+      </div>
+    <% end %>
+
+
+    <% if @user.microposts.any? %>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+
+
+
+
+  </div>
+</div>
+

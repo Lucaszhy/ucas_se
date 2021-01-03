@@ -1,0 +1,46 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+
+<% else %>
+  <div class="center jumbotron" style="padding-top: 72px;padding-bottom:27px">
+  <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active" style="height:375px">
+        <%= link_to image_tag(ActionController::Base.helpers.asset_path("library.jpg") , style: "width: 100%;height:100%") %>
+        </div>
+        <div class="item" style="height:375px">
+        <%= link_to image_tag(ActionController::Base.helpers.asset_path("sky.jpg") , style: "width: 100%;height:100%") %>
+        </div>
+        <div class="item" style="height:375px">
+        <%= link_to image_tag(ActionController::Base.helpers.asset_path("middlebridge.jpg") , style: "width: 100%;height:100%") %>
+        </div>
+    </div>
+    </div>
+
+    <h1>果壳交友网</h1>
+    <h2>来这里，遇见TA</h2>
+    
+  </div>
+<% end %>
+</div>
+

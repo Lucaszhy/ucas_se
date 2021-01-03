@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="font-size:30px">果壳社区</h1>
+
+<form action="/searchposts" method="get">
+  <div class="searchItem">
+    <input class="form-control" name="posts" id="searchPosts" value="" placeholder="请输入关键字搜索帖子">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary">搜索微博</button>
+  </div>
+</form>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>微博内容</th>
+      <th>发帖人</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @microposts.each do |micropost| %>
+      <tr>
+        <td><%= micropost.content %></td>
+        <td><%= User.find(micropost.user_id).name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+  <% if logged_in? %>
+    <p><%= link_to '点击此处',root_path %>发个新微博吧~~~</p>
+  <% else %>
+    <p>您还没有登录，<%= link_to '请登录',login_path %>后才能查看所有用户信息和微博内容。</p>
+  <% end %>

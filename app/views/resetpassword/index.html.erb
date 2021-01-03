@@ -1,0 +1,16 @@
+
+
+<h1 style="font-size:30px">找回密码</h1>
+
+<!-- form里的action="/resets"代表交给路由/resets 所代表的controller类里的某个处理方法 -->
+<form action="/resets" method="get" style="margin-left: 410px; width: 360px">
+  <label for="user_email">您的邮箱</label>
+  <input class="form-control" name="email" id="user_email" value="" placeholder="请输入邮箱">
+
+  <label for="user_answer">密保问题答案 </label>
+  <input class="form-control" name="newAnswer" id="user_answer" value="" placeholder="请输入密保答案">
+
+  <label for="user_password_digest">您的新密码</label>
+  <input class="form-control" name="password_digest" id="user_password_digest" value="" placeholder="请输入仅包含字母数字下划线等组成的密码">
+  <button class="btn btn-primary">确认修改</button>
+</form>

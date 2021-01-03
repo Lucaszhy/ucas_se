@@ -1,0 +1,19 @@
+<h2>为您找到以下帖子</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>帖子内容</th>
+      <th>发帖人</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @microposts.each do |micropost| %>
+      <tr>
+        <td><%= micropost.content %></td>
+        <td><%= User.find(micropost.user_id).name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
